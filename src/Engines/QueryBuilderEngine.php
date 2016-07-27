@@ -127,7 +127,7 @@ class QueryBuilderEngine extends BaseEngine
                 $queryBuilder  = $this->getQueryBuilder($query);
 
                 foreach ($this->request->searchableColumnIndex() as $index) {
-                    $columnName = $this->getColumnName($index);
+                    $columnName = $this->getColumnName($index, true);
                     if ($this->isBlacklisted($columnName)) {
                         continue;
                     }
@@ -322,7 +322,7 @@ class QueryBuilderEngine extends BaseEngine
                 continue;
             }
 
-            $column = $this->getColumnName($index);
+            $column = $this->getColumnName($index, true);
 
             if (isset($this->columnDef['filter'][$column])) {
                 $columnDef = $this->columnDef['filter'][$column];
